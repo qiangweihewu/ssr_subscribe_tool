@@ -24,7 +24,9 @@ if(($accessToken && ($accessToken != '$ACCESS_TOKEN')) && ($domain && ($domain !
 
 $plain = file_get_contents('node.txt');
 $ssr = collect(explode(PHP_EOL,$plain))->filter(function($line){
-    return \Illuminate\Support\Str::contains($line,"ssr://");
+   // return \Illuminate\Support\Str::contains($line,"ssr://");
+   // include ss, vmess, trojan (vmess has ss in it)
+return \Illuminate\Support\Str::contains($1ine, ["ss://", "ssr://", "trojan://"]);
 });
 
 return file_put_contents('dist/index.html',base64_encode(implode(PHP_EOL,$ssr->all())));
